@@ -45,16 +45,21 @@ function playQuiz()
             }
 
             console.log()
-            let ans = parseInt(ansIndex)
-            if(ele.answer === ele.options[ans - 1]){
+            let ans = parseInt(ansIndex) 
+            if(ele.answer === ans){
                 console.log("Your answer is correct")
                 score += 10
+
             }else{
               console.log("Your answer is incorrect")
             }
 
             console.log("Your response : " + ele.options[ansIndex - 1])
-            console.log("Correct answer : " + ele.answer)
+            console.log("Correct answer : " + ele.options[ele.answer-1])
+
+            if(index <= (numberOfQuestions-1)){
+              let press = readLineSync.question("\npress enter to continue : ")
+            }
             console.log()
             console.log()
             index += 1
@@ -66,7 +71,7 @@ function playQuiz()
 
         console.log("Thanks for playing . Your score is : " + score)
 
-        play = readLineSync.question("Want to play again ? Please press y to continue , any other key to exit")
+        play = readLineSync.question("Want to play again ? Please press y to continue , any other key to exit : ")
 
       }
 
